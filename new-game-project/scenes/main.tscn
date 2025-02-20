@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2ynet7fqjqto"]
+
+[ext_resource type="PackedScene" uid="uid://dph14qq6fpv6o" path="res://scenes/world_barrier.tscn" id="1_ggcp5"]
+[ext_resource type="PackedScene" uid="uid://blx6qv0i3b2pm" path="res://scenes/ball.tscn" id="2_0xva1"]
+
+[node name="main" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="world_barrier" parent="CanvasLayer" instance=ExtResource("1_ggcp5")]
+position = Vector2(-7, 1)
+
+[node name="world_barrier2" parent="CanvasLayer" instance=ExtResource("1_ggcp5")]
+position = Vector2(639, -69)
+rotation = 1.5708
+
+[node name="world_barrier3" parent="CanvasLayer" instance=ExtResource("1_ggcp5")]
+position = Vector2(1, 571)
+rotation = -1.5708
+
+[node name="world_barrier4" parent="CanvasLayer" instance=ExtResource("1_ggcp5")]
+position = Vector2(651, 480)
+rotation = 3.14159
+
+[node name="ball" parent="CanvasLayer" instance=ExtResource("2_0xva1")]
+position = Vector2(299, 233)
