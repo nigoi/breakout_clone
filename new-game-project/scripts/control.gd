@@ -14,6 +14,7 @@ func spawn_ball():
 	balls -= 1
 	#restarts scene if lives and balls are ou
 	if lives == 0 and balls == 0:
+		print("you lose")
 		get_tree().reload_current_scene()
 	#else spawns ball, connects signal and adds ball to coun
 	else:

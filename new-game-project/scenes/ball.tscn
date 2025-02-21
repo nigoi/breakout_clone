@@ -1,42 +1,49 @@
-[gd_scene load_steps=9 format=3 uid="uid://blx6qv0i3b2pm"]
+[gd_scene load_steps=10 format=3 uid="uid://blx6qv0i3b2pm"]
 
 [ext_resource type="Texture2D" uid="uid://dav3s3wo2gusp" path="res://assets/bouncing_ball.png" id="1_a7jbf"]
 [ext_resource type="Script" path="res://scripts/ball.gd" id="2_tqm4w"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vykt4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xl3o"]
 atlas = ExtResource("1_a7jbf")
 region = Rect2(0, 0, 18, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7bq4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsyaq"]
 atlas = ExtResource("1_a7jbf")
 region = Rect2(18, 0, 18, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8tvyh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0rh6"]
 atlas = ExtResource("1_a7jbf")
 region = Rect2(36, 0, 18, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c71fo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aotwr"]
 atlas = ExtResource("1_a7jbf")
 region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxt87"]
+atlas = ExtResource("1_a7jbf")
+region = Rect2(72, 0, 18, 18)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g230f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vykt4")
+"texture": SubResource("AtlasTexture_4xl3o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d7bq4")
+"texture": SubResource("AtlasTexture_dsyaq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8tvyh")
+"texture": SubResource("AtlasTexture_h0rh6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c71fo")
+"texture": SubResource("AtlasTexture_aotwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxt87")
 }],
 "loop": false,
 "name": &"bouncing",
-"speed": 8.0
+"speed": 20.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l24ai"]

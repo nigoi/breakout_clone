@@ -19,4 +19,4 @@ func _process(delta: float) -> void:
 			velocity.x = lerp(velocity.x, 1.0, 0.2)
 		else:
 			velocity.x = lerp(velocity.x, 0.0, 0.05)
-	move_and_collide(velocity * speed * delta)
+	var collision = move_and_collide(velocity * speed * delta)
