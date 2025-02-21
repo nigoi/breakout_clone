@@ -34,9 +34,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c71fo")
 }],
-"loop": true,
+"loop": false,
 "name": &"bouncing",
-"speed": 10.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l24ai"]
@@ -50,8 +50,8 @@ script = ExtResource("2_tqm4w")
 scale = Vector2(1.875, 1.875)
 sprite_frames = SubResource("SpriteFrames_g230f")
 animation = &"bouncing"
-autoplay = "bouncing"
-frame_progress = 0.74731
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l24ai")
