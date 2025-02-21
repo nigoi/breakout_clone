@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2ynet7fqjqto"]
+[gd_scene load_steps=5 format=3 uid="uid://b2ynet7fqjqto"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_5ds5p"]
 [ext_resource type="PackedScene" uid="uid://dph14qq6fpv6o" path="res://scenes/world_barrier.tscn" id="1_ggcp5"]
 [ext_resource type="PackedScene" uid="uid://25g0mprxwqqc" path="res://scenes/paddle.tscn" id="3_t5wm6"]
+[ext_resource type="PackedScene" uid="uid://dr01pgyqwh5fn" path="res://scenes/brick_scn_1.tscn" id="4_vncr8"]
 
 [node name="main" type="Node2D"]
 
@@ -33,3 +34,5 @@ position = Vector2(1, 571)
 rotation = -1.5708
 
 [node name="paddle" parent="." instance=ExtResource("3_t5wm6")]
+
+[node name="brick_scn_1" parent="." instance=ExtResource("4_vncr8")]
