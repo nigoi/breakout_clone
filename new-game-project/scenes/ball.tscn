@@ -50,8 +50,6 @@ script = ExtResource("2_tqm4w")
 scale = Vector2(1.875, 1.875)
 sprite_frames = SubResource("SpriteFrames_g230f")
 animation = &"bouncing"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l24ai")

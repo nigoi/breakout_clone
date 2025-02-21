@@ -2,8 +2,13 @@ extends Control
 var lives = 4
 var balls = 1
 var score = 0
+@onready var paddle: RigidBody2D = $"../../paddle"
 
 func spawn_ball():
+	#reset paddle
+	paddle.move = false
+	paddle.position = Vector2(get_viewport().get_visible_rect().size.x / 2, get_viewport().get_visible_rect().size.y * 0.9)
+	paddle.velocity = Vector2.ZERO
 	#removes ball and life drom count
 	lives -= 1
 	balls -= 1
