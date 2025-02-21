@@ -3,9 +3,10 @@ var speed = 600
 var start_draw = true
 var velocity = Vector2.ZERO
 signal dead_ball
+@onready var viewport_size = get_viewport().size
 
 func _ready() -> void:
-	position = Vector2(get_viewport().size.x / 2, get_viewport().size.y * 0.9)
+	position = Vector2(viewport_size.x / 2, viewport_size.y * 0.85)
 
 func _draw() -> void:
 	if start_draw == true:
@@ -19,13 +20,12 @@ func _process(delta: float) -> void:
 		start_draw = false
 		var mouse = to_local(get_viewport().get_mouse_position())
 		velocity = (Vector2.ZERO + mouse).normalized()
-
 	var collision = move_and_collide(velocity * speed * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		$AnimatedSprite2D.play()
-	
-	if position.y > get_viewport().size.y:
+		
+	if position.y > viewport_size.y:
 		emit_signal("dead_ball")
 		queue_free()
 		print("dead ball")

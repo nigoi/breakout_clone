@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2ynet7fqjqto"]
 
-[ext_resource type="Script" path="res://scenes/control.gd" id="1_5ds5p"]
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_5ds5p"]
 [ext_resource type="PackedScene" uid="uid://dph14qq6fpv6o" path="res://scenes/world_barrier.tscn" id="1_ggcp5"]
 
 [node name="main" type="Node2D"]
@@ -18,15 +18,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_5ds5p")
 
-[node name="Node" type="Node" parent="."]
+[node name="walls" type="Node" parent="."]
 
-[node name="world_barrier" parent="Node" instance=ExtResource("1_ggcp5")]
+[node name="world_barrier" parent="walls" instance=ExtResource("1_ggcp5")]
 position = Vector2(-7, 1)
 
-[node name="world_barrier2" parent="Node" instance=ExtResource("1_ggcp5")]
+[node name="world_barrier2" parent="walls" instance=ExtResource("1_ggcp5")]
 position = Vector2(639, -69)
 rotation = 1.5708
 
-[node name="world_barrier3" parent="Node" instance=ExtResource("1_ggcp5")]
+[node name="world_barrier3" parent="walls" instance=ExtResource("1_ggcp5")]
 position = Vector2(1, 571)
 rotation = -1.5708
