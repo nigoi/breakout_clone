@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		$AnimatedSprite2D.play("bouncing")
+		$AudioStreamPlayer2D.play()
 		
 	if position.y > viewport_size.y:
 		emit_signal("dead_ball")

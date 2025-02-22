@@ -37,6 +37,7 @@ func spawn_bricks():
 func add_score():
 	score += 1
 	score_label.text = ("SCORE: " + str(score))
+	$AudioStreamPlayer2D.play()
 	print("score: ", score)
 
 func _ready() -> void:
