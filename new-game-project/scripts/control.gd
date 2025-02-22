@@ -24,6 +24,17 @@ func spawn_ball():
 		balls += 1
 		ball_inst.connect("dead_ball", self.spawn_ball)
 		print("lives: ", lives, " balls: ", balls, " score: ", score)
-			
+
+func spawn_bricks():
+	var bricks_load = preload("res://scenes/brick_scn_1.tscn")
+	var bricks_inst = bricks_load.instantiate()
+	add_child(bricks_inst)
+	bricks_inst.connect("plus_point", self.add_score)
+	
+func add_score():
+	score += 1
+	print("score: ", score)
+
 func _ready() -> void:
+	spawn_bricks()
 	spawn_ball()

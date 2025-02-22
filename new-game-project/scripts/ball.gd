@@ -6,7 +6,7 @@ signal dead_ball
 @onready var viewport_size = get_viewport().get_visible_rect().size
 
 func _ready() -> void:
-	position = Vector2(viewport_size.x / 2, viewport_size.y * 0.85)
+	position = Vector2(viewport_size.x / 2, viewport_size.y * 0.87)
 	
 func _draw() -> void:
 	if start_draw == true:
