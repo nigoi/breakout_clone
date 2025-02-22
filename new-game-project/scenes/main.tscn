@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2ynet7fqjqto"]
+[gd_scene load_steps=6 format=3 uid="uid://b2ynet7fqjqto"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_5ds5p"]
 [ext_resource type="PackedScene" uid="uid://dph14qq6fpv6o" path="res://scenes/world_barrier.tscn" id="1_ggcp5"]
+[ext_resource type="Texture2D" uid="uid://b8uowy1kk60tq" path="res://assets/UI.png" id="2_l88ni"]
+[ext_resource type="FontFile" uid="uid://b161e768isrrh" path="res://fonts/joystix monospace.otf" id="2_ly82g"]
 [ext_resource type="PackedScene" uid="uid://25g0mprxwqqc" path="res://scenes/paddle.tscn" id="3_t5wm6"]
 
 [node name="main" type="Node2D"]
@@ -10,27 +12,60 @@
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.1
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_5ds5p")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.1
+anchor_left = 0.05
+anchor_top = 0.18
+anchor_right = 0.465
+anchor_bottom = 0.8
+
+[node name="score_label" type="Label" parent="CanvasLayer/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.482353, 1, 0.188235, 1)
+theme_override_fonts/font = ExtResource("2_ly82g")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.54
+anchor_top = 0.18
+anchor_right = 0.95
+anchor_bottom = 0.82
+
+[node name="lives_label" type="Label" parent="CanvasLayer/Control/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.482353, 1, 0.188235, 1)
+theme_override_fonts/font = ExtResource("2_ly82g")
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.9
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l88ni")
 
 [node name="walls" type="Node" parent="."]
 
 [node name="world_barrier" parent="walls" instance=ExtResource("1_ggcp5")]
-position = Vector2(-7, 1)
+position = Vector2(0, 48)
 
 [node name="world_barrier2" parent="walls" instance=ExtResource("1_ggcp5")]
 position = Vector2(639, -69)

@@ -3,6 +3,8 @@ var lives = 4
 var balls = 1
 var score = 0
 @onready var paddle: RigidBody2D = $"../../paddle"
+@onready var score_label: Label = $HBoxContainer/score_label
+@onready var lives_label: Label = $HBoxContainer2/lives_label
 
 func spawn_ball():
 	#reset paddle
@@ -12,6 +14,7 @@ func spawn_ball():
 	#removes ball and life drom count
 	lives -= 1
 	balls -= 1
+	lives_label.text = ("LIVES: " + str(lives))
 	#restarts scene if lives and balls are ou
 	if lives == 0 and balls == 0:
 		print("you lose")
@@ -33,8 +36,11 @@ func spawn_bricks():
 	
 func add_score():
 	score += 1
+	score_label.text = ("SCORE: " + str(score))
 	print("score: ", score)
 
 func _ready() -> void:
+	score_label.text = ("SCORE: " + str(score))
+	lives_label.text = ("LIVES: " + str(lives))
 	spawn_bricks()
 	spawn_ball()
