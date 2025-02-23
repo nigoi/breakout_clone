@@ -1,7 +1,7 @@
 extends RigidBody2D
 var move = false
 var velocity = Vector2.ZERO
-var speed = 400
+var speed = 500
 @onready var viewport_size = get_viewport().get_visible_rect().size 
 
 func _ready() -> void:

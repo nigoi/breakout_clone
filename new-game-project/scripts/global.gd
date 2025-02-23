@@ -1,2 +1,3 @@
 extends Node
-var viewport_size = get_viewport().size
+var high_score = 0
+var score = 0

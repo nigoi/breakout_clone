@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://25g0mprxwqqc" path="res://scenes/paddle.tscn" id="3_t5wm6"]
 [ext_resource type="AudioStream" uid="uid://dsks8jdf0rruu" path="res://sound_effects/breaking_sound.wav" id="4_7sn1b"]
 
-[sub_resource type="Gradient" id="Gradient_etpwm"]
+[sub_resource type="Gradient" id="Gradient_f83hj"]
 colors = PackedColorArray(0, 0, 0, 1, 0.396078, 0.643137, 0.607843, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dlx66"]
-gradient = SubResource("Gradient_etpwm")
+gradient = SubResource("Gradient_f83hj")
 
 [node name="main" type="Node2D"]
 
@@ -43,7 +43,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.482353, 1, 0.188235, 1)
 theme_override_fonts/font = ExtResource("2_ly82g")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control"]
@@ -59,7 +59,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.482353, 1, 0.188235, 1)
 theme_override_fonts/font = ExtResource("2_ly82g")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
@@ -91,10 +91,11 @@ position = Vector2(1, 571)
 rotation = -1.5708
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 offset_left = 673.0
 offset_top = -16.0
 offset_right = 1186.0
 offset_bottom = 673.0
 rotation = 1.5708
 texture = SubResource("GradientTexture2D_dlx66")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

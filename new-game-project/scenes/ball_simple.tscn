@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://1xpf7s8ihqki"]
 
-[ext_resource type="Script" path="res://scenes/ball_simple.gd" id="1_mdr2h"]
+[ext_resource type="Script" path="res://scripts/ball_simple.gd" id="1_mdr2h"]
 [ext_resource type="Texture2D" uid="uid://dav3s3wo2gusp" path="res://assets/bouncing_ball.png" id="2_n4bu3"]
 [ext_resource type="AudioStream" uid="uid://ct7kdwqtkr0b3" path="res://sound_effects/bounce.wav" id="3_a1pp7"]
 

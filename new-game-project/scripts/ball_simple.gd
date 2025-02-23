@@ -1,5 +1,5 @@
 extends RigidBody2D
-var speed = 300 
+var speed = 200 
 @onready var velocity = Vector2(1, 1)
 signal dead_ball
 @onready var viewport_size = get_viewport().get_visible_rect().size
