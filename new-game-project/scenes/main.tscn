@@ -91,6 +91,7 @@ position = Vector2(1, 571)
 rotation = -1.5708
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 offset_left = 673.0
 offset_top = -16.0
 offset_right = 1186.0

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwoltgyv40sje"]
 
-[ext_resource type="Script" path="res://scenes/ball_brick.gd" id="1_2ux3x"]
+[ext_resource type="Script" path="res://scripts/ball_brick.gd" id="1_2ux3x"]
 [ext_resource type="Texture2D" uid="uid://nd3c7su744j4" path="res://assets/blue_brick.png" id="2_olkll"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c7wks"]

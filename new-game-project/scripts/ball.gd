@@ -2,11 +2,8 @@ extends RigidBody2D
 var speed = 300 
 var start_draw = true
 var velocity = Vector2.ZERO
-signal dead_ball
 @onready var viewport_size = get_viewport().get_visible_rect().size
-
-func _ready() -> void:
-	position = Vector2(viewport_size.x / 2, viewport_size.y * 0.87)
+signal dead_ball
 	
 func _draw() -> void:
 	if start_draw == true:

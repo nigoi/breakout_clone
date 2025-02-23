@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://1xpf7s8ihqki"]
+
+[ext_resource type="Script" path="res://scenes/ball_simple.gd" id="1_mdr2h"]
+[ext_resource type="Texture2D" uid="uid://dav3s3wo2gusp" path="res://assets/bouncing_ball.png" id="2_n4bu3"]
+[ext_resource type="AudioStream" uid="uid://ct7kdwqtkr0b3" path="res://sound_effects/bounce.wav" id="3_a1pp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xl3o"]
+atlas = ExtResource("2_n4bu3")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsyaq"]
+atlas = ExtResource("2_n4bu3")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0rh6"]
+atlas = ExtResource("2_n4bu3")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aotwr"]
+atlas = ExtResource("2_n4bu3")
+region = Rect2(54, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxt87"]
+atlas = ExtResource("2_n4bu3")
+region = Rect2(72, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g230f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xl3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dsyaq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0rh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aotwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxt87")
+}],
+"loop": false,
+"name": &"bouncing",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l24ai"]
+radius = 11.0
+
+[node name="ball" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 3
+gravity_scale = 0.0
+script = ExtResource("1_mdr2h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.875, 1.875)
+sprite_frames = SubResource("SpriteFrames_g230f")
+animation = &"bouncing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l24ai")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a1pp7")
