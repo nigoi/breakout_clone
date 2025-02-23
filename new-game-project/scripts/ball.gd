@@ -1,5 +1,5 @@
 extends RigidBody2D
-var speed = 300 
+var speed = Global.speed 
 var start_draw = true
 var velocity = Vector2.ZERO
 @onready var viewport_size = get_viewport().get_visible_rect().size
@@ -11,6 +11,7 @@ func _draw() -> void:
 		draw_line(Vector2.ZERO, mouse_pos, Color.WHITE, 1)
 		
 func _process(delta: float) -> void:
+	var speed = Global.speed 
 	if start_draw == true:
 		queue_redraw()
 	if Input.is_action_just_pressed("space") and start_draw == true:

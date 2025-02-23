@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2ynet7fqjqto"]
+[gd_scene load_steps=8 format=3 uid="uid://b2ynet7fqjqto"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_5ds5p"]
 [ext_resource type="PackedScene" uid="uid://dph14qq6fpv6o" path="res://scenes/world_barrier.tscn" id="1_ggcp5"]
 [ext_resource type="Texture2D" uid="uid://b8uowy1kk60tq" path="res://assets/UI.png" id="2_l88ni"]
 [ext_resource type="FontFile" uid="uid://b161e768isrrh" path="res://fonts/joystix monospace.otf" id="2_ly82g"]
 [ext_resource type="PackedScene" uid="uid://25g0mprxwqqc" path="res://scenes/paddle.tscn" id="3_t5wm6"]
-[ext_resource type="AudioStream" uid="uid://dsks8jdf0rruu" path="res://sound_effects/breaking_sound.wav" id="4_7sn1b"]
 
 [sub_resource type="Gradient" id="Gradient_f83hj"]
 colors = PackedColorArray(0, 0, 0, 1, 0.396078, 0.643137, 0.607843, 1)
@@ -73,8 +72,7 @@ grow_vertical = 2
 texture = ExtResource("2_l88ni")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer/Control"]
-stream = ExtResource("4_7sn1b")
-volume_db = -5.0
+volume_db = 1.0
 attenuation = 2.2974
 
 [node name="walls" type="Node" parent="."]

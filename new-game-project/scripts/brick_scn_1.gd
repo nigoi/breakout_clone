@@ -23,7 +23,7 @@ func spawn_bricks(level_select):
 				elif brick_name == "ball_brick":
 					brick_number += 1
 				var brick_inst = brick_scene.instantiate()
-				add_child(brick_inst)
+				call_deferred("add_child", brick_inst)
 				brick_inst.position = position
 				brick_inst.connect("brick_broken", self.emit)
 
@@ -34,6 +34,8 @@ func emit(type, brick_position):
 		emit_signal("plus_point", "blue", brick_position)
 		print(brick_position)
 	brick_number -= 1
+	Global.speed += 1
+	print("speed now", Global.speed)
 	print("bricks left =", brick_number)
 	if brick_number == 0:
 		spawn_bricks(level_select)

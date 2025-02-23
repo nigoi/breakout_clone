@@ -7,10 +7,18 @@ var score = 0
 @onready var score_label: Label = $HBoxContainer/score_label
 @onready var lives_label: Label = $HBoxContainer2/lives_label
 var new_highscore = false
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+var breaking = preload("res://sound_effects/breaking_sound.wav")
+var error = preload("res://sound_effects/error.wav")
+
+func music_player(sound):
+	audio_player.stream = sound
+	audio_player.play()
 
 func spawn_ball():
 	balls -= 1
 	if balls < 1:
+		music_player(error)
 		lives -= 1
 		lives_label.text = ("LIVES: " + str(lives))
 		spawn_sub_ball("complex", Vector2(viewport_size.x / 2, viewport_size.y * 0.9))
@@ -25,7 +33,7 @@ func spawn_sub_ball(type, ball_position):
 	if type == "complex":
 		var ball = preload("res://scenes/ball.tscn")
 		var ball_inst = ball.instantiate()
-		add_child(ball_inst)
+		call_deferred("add_child", ball_inst)
 		ball_inst.position = ball_position
 		balls += 1
 		ball_inst.connect("dead_ball", self.spawn_ball)
@@ -33,7 +41,7 @@ func spawn_sub_ball(type, ball_position):
 	if type == "simple":
 		var ball = preload("res://scenes/ball_simple.tscn")
 		var ball_inst = ball.instantiate()
-		add_child(ball_inst)
+		call_deferred("add_child", ball_inst)
 		ball_inst.position = ball_position
 		balls += 1
 		ball_inst.connect("dead_ball", self.spawn_ball)
@@ -48,13 +56,13 @@ func add_score(type, brick_position):
 	if type == "green":
 		score += 1
 		score_label.text = ("SCORE: " + str(score))
-		$AudioStreamPlayer2D.play()
+		music_player(breaking)
 		print("score: ", score)
 	if type == "blue":
 		var new_ball = spawn_sub_ball("simple", brick_position)
 		score += 3
 		score_label.text = ("SCORE: " + str(score))
-		$AudioStreamPlayer2D.play()
+		music_player(breaking)
 		print("score: ", score)
 	if score > Global.high_score:
 		Global.high_score = score

@@ -66,3 +66,4 @@ shape = SubResource("CircleShape2D_l24ai")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_hpbmf")
+volume_db = -5.0
