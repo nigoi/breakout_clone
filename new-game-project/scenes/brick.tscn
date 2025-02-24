@@ -9,7 +9,7 @@ height = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hcnhq"]
 radius = 9.0
-height = 72.0
+height = 74.0
 
 [node name="brick" type="RigidBody2D"]
 collision_layer = 2

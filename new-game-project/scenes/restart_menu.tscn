@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwhwkuvh6yyhc"]
+[gd_scene load_steps=9 format=3 uid="uid://bwhwkuvh6yyhc"]
 
 [ext_resource type="Texture2D" uid="uid://cfnypmkk0su1g" path="res://assets/restart_UI.png" id="1_2jtr3"]
 [ext_resource type="Script" path="res://scripts/restart_menu.gd" id="1_joqhy"]
 [ext_resource type="FontFile" uid="uid://b161e768isrrh" path="res://fonts/joystix monospace.otf" id="2_5hm7t"]
 [ext_resource type="Texture2D" uid="uid://hn8utagrbma3" path="res://assets/background_animation.png" id="4_fw3s8"]
+[ext_resource type="AudioStream" uid="uid://7p8wwkl4bh0q" path="res://sound_effects/failure.wav" id="5_ja1f8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jfvb"]
 atlas = ExtResource("4_fw3s8")
@@ -90,6 +91,10 @@ theme_override_colors/font_color = Color(0.996078, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_5hm7t")
 theme_override_font_sizes/font_size = 40
 text = "START"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ja1f8")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
