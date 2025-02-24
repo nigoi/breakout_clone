@@ -10,13 +10,24 @@ var new_highscore = false
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 var breaking = preload("res://sound_effects/breaking_sound.wav")
 var error = preload("res://sound_effects/error.wav")
+@onready var camera_2d: Camera2D = $"../../Camera2D"
 
 func music_player(sound):
 	audio_player.stream = sound
 	audio_player.play()
 
+func shake():
+	for i in range(2):
+		await get_tree().create_timer(0.1).timeout
+		camera_2d.offset += Vector2(5, 5)
+		await get_tree().create_timer(0.1).timeout
+		camera_2d.offset -= Vector2(5, 5)
+		print("shake")
+	rotation = 0
+
 func spawn_ball():
 	balls -= 1
+	shake()
 	if balls < 1:
 		music_player(error)
 		lives -= 1
@@ -64,10 +75,19 @@ func add_score(type, brick_position):
 		score_label.text = ("SCORE: " + str(score))
 		music_player(breaking)
 		print("score: ", score)
+	if type == "pink":
+		print("pink broken")
+		score += 5
+		lives += 1
+		lives_label.text = ("LIVES: " + str(lives))
+		score_label.text = ("SCORE: " + str(score))
+		music_player(breaking)
+		print("score: ", score)
 	if score > Global.high_score:
 		Global.high_score = score
-		score_label.text = ("NEW HIGH SCORE: " + str(score))
+		score_label.text = ("SCORE: " + str(score))
 		if new_highscore == false:
+			score_label.text = ("NEW HIGH SCORE")
 			for i in range(4):
 				await get_tree().create_timer(0.2).timeout
 				score_label.self_modulate = Color("#fe0000")
