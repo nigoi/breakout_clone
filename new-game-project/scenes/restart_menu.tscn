@@ -1,14 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwhwkuvh6yyhc"]
+[gd_scene load_steps=8 format=3 uid="uid://bwhwkuvh6yyhc"]
 
 [ext_resource type="Texture2D" uid="uid://cfnypmkk0su1g" path="res://assets/restart_UI.png" id="1_2jtr3"]
 [ext_resource type="Script" path="res://scripts/restart_menu.gd" id="1_joqhy"]
 [ext_resource type="FontFile" uid="uid://b161e768isrrh" path="res://fonts/joystix monospace.otf" id="2_5hm7t"]
+[ext_resource type="Texture2D" uid="uid://hn8utagrbma3" path="res://assets/background_animation.png" id="4_fw3s8"]
 
-[sub_resource type="Gradient" id="Gradient_etpwm"]
-colors = PackedColorArray(0, 0, 0, 1, 0.396078, 0.643137, 0.607843, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jfvb"]
+atlas = ExtResource("4_fw3s8")
+region = Rect2(0, 0, 160, 120)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ngwss"]
-gradient = SubResource("Gradient_etpwm")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujs3"]
+atlas = ExtResource("4_fw3s8")
+region = Rect2(160, 0, 160, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opa3y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jfvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sujs3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -20,13 +37,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_joqhy")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 536.0
-offset_top = -120.0
-offset_right = 1049.0
-offset_bottom = 569.0
-rotation = 1.5708
-texture = SubResource("GradientTexture2D_ngwss")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(192, 144)
+scale = Vector2(4, 3.96667)
+sprite_frames = SubResource("SpriteFrames_opa3y")
+autoplay = "default"
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -63,4 +78,18 @@ theme_override_fonts/font = ExtResource("2_5hm7t")
 theme_override_font_sizes/font_size = 40
 text = "START"
 
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 0.9
+theme_override_colors/font_hover_color = Color(0.317647, 1, 0, 1)
+theme_override_colors/font_color = Color(0.996078, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_5hm7t")
+theme_override_font_sizes/font_size = 40
+text = "START"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
