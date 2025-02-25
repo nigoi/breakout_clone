@@ -16,7 +16,7 @@ func play_track(track_selc):
 		audio_player.play()
 		print("working")
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func die():
 	lives -= 1
 	if lives == 2:
 		play_track(1)
@@ -25,5 +25,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		$Sprite2D.texture = preload("res://assets/blue_brick_break2.png")
 		play_track(1)
 	if lives == 0:
-		self.queue_free()
 		emit_signal("brick_broken", "blue", position)
+		call_deferred("queue_free")

@@ -1,6 +1,6 @@
 extends RigidBody2D
 signal brick_broken(type, brick_position)
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func die():
 	emit_signal("brick_broken", "green", position)
-	self.queue_free()
+	call_deferred("queue_free")
